@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">HelloToastChallenge</string>
+    <string name="button_label_toast">0</string>
+    <string name="btn_count">Count</string>
+
+    <string name="textscroll">12. Mở rộng từng cảnh báo Hardcoded text, cuộn xuống cuối thông báo của cảnh báo và bấm vào nút Fix như bên dưới:
+Việc sửa từng cảnh báo hardcoded text trích xuất string resources cho văn bản. Hộp thoại Extract Resource xuất hiện, và bạn có thể nhập tên cho string resources. Nhập tên string resources theo:
+Chuỗi	Nhập tên theo:
+Donuts are glazed and sprinkled with candy. 	donuts 
+Ice cream sandwiches have chocolate wafers and  vanilla filling. 	ice_cream_sandwiches 
+FroYo is premium selfserve frozen yogurt.	froyo 
+
+Bố cục bây giờ sẽ trông giống như hình bên dưới:
+
+1.3 Thêm mô tả văn bản
+Trong bước này bạn thêm một văn bản mô tả (TextView) cho mỗi món tráng miệng. Vì bạn đã trích string resources cho trường contentDescription cho mỗi phần tử ImageView, bạn có thể sử dụng cùng các string resources này cho mỗi TextView mô tả.
+1.  Kéo một phần tử TextView vào bố cục.
+2. Ràng buộc bên trái của phần tử này vào bên phải của ImageView donut và ràng buộc bên trên của nó vào cạnh trên của ImageView donut, cả hai với khoảng cách 24 (24dp).
+3. Ràng buộc cạnh phải của phần rử này vào cạnh phải của bố cục và cũng sử dụng khoảng cách 24 (24dp). Nhập donut_description cho trường ID trong bảng Attributes. TextView mới sẽ xuất hiện bên cạnh hình ảnh donut như hình bên dưới.
+4. Trong bảng Attributes thay đổi chiều rộng trong inspector pane thành Match Constraints:
+5. Trong bảng Attributes, bắt đầu nhập string resources cho trường text bằng cách đặt ký hiệu @ trước: @d. Bấm vào tên string resources (@string/donuts) khi nó xuất hiện gợi ý:
+
+6. Lặp lại các bước trên để thêm một TextView thứ hai, được ràng buộc vào cạnh phải và bên trên của ImageView ice_cream, và cạnh phải của bố cục. Nhập vào bảng Attributes:
+Trường Attribute	Nhập theo sau:
+ID	ice_cream_descriptiom
+Left, right, and top margins	24
+layout_width	match_constraint
+text	@string/ice_cream_sandwiches
+
+7. Lặp lại các bước trên để thêm một TextView thứ ba, được ràng buộc vào cạnh phải và cạnh trên của ImageView froyo, và cạnh phải của nó vào cạnh phải của bố cục. Nhập vào bảng Attributes:
+Trường Attribute	Nhập theo sau:
+ID	froyo_descriptiom
+Left, right, and top margins	24
+layout_width	match_constraint
+text	@string/froyo
+
+Bố cục bây giờ sẽ trông giống như hình bên dưới:
+
+
+Mã giải pháp nhiệm vụ 1
+Bố cục XML cho tệp content.xml được hiển thị bên dưới
+
+Nhiệm vụ 2: Thêm phương thức onClick cho hình ảnh
+Để làm cho một View có thể bấm được để người dùng có thể chạm (hoặc bấm) vào nó, hãy thêm thuộc tính android:onClick trong bố cục XML và chỉ định phương thức xử lý sự kiện click. Ví dụ, banh có thể làm một ImageView hoạt động như một Button bằng cách thêm android:onClick vào ImageView. Trong nhiệm vụ này, bạn sẽ làm cho các hình ảnh trong bố cục của bạn có thể nhấn được
+2.1 Tạo phương thức Toast
+Trong nhiệm vụ này, bạn thêm từng phương thức cho thuộc tính android:onClick để gọi khi mỗi hình ảnh được nhấn vào. Trong nhiệm vụ này, các phương thức đơn giản hiển thị một thông báo Toast, nó cho biết hình ảnh đã được chạm vào. (Trong một chương khác, bạn sẽ sửa đổi các phương thức này để khởi động một Activity khác.)
+1. Để sử dụng string resources trong code Java, bạn nên thêm chúng vào tệp strings.xml. Mở rộng res > values trong bảng điều khiển Project > Android, và mở string.xml. Thêm các string resources sau cho các chuỗi để hiển thị trong thông báo Toast:
+
+2. Mở MainActivity, và thêm phương thức displayToast() sau vào cuối MainActivity (trước dấu ngoặc đóng):
+
+Mặc dù bạn có thể thêm phương thức này ở bất cứ vị trí nào trong MainActivity, nhưng thực tiễn tốt nhất là đặt các phương thức bên dưới các phương thức đã được cung cấp trong MainActivity bởi mẫu.
+2.2 Tạo trình xử lý sự kiện click
+Mỗi hình ảnh có thể nhấp cần một trình xử lý sự kiện nhấp chuột—một phương thức cho thuộc tính android:onClick để gọi. Trình xử lý sự kiện nhấp chuột, nếu được gọi từ thuộc tính android:onClick, phải là public, trả về void, và định nghĩa một View như là tham số duy nhất của nó. Thực hiện các bước sau để thêm các trình xử lý sự kiện nhấp chuột:
+1. Thêm phương thức showDonutOrder() sau vào MainActivity. Trong nhiệm vụ này, sử dụng phương thức displayToast() đã tạo trước đó để hiển thị một thông báo Toast.
+
+Ba dòng đầu tiên là một nhận xét theo định dạng Javadoc, nó làm code dễ hiểu hơn và cũng giúp tạo tài liệu cho code của bạn. Đây là một thực tiễn tốt nhất để thêm nhận xét như vậy cho mỗi phương thức mới mà bạn tạo. Để biết thêm thông tin về cách viết nhận xét, hãy xem How to Write Doc Comments for the Javadoc Tool.
+2. Thêm nhiều phương thức vào cuối MainActivity cho mỗi món tráng miệng:
+
+3. (Tùy chọn) Chọn Code > Reformat Code để định dạng lại code mà bạn đã thêm vào  MainActivity để phù hợp với các tiêu chuẩn và làm cho nó dễ đọc hơn.
+2.3 Thêm thuộc tính onClick
+Trong bước này bạn thêm android:onClick vào từng phần tử ImageView trong bố cục. Thuộc tính android:onClick gọi trình xử lý sự kiện nhấn  cho từng phần tử.
+1. Mở tệp content_main.xml, và nhấp vào tab Text trong trình chỉnh sửa bố cục để hiển thị mã XML.
+2. Thêm thuộc tính android:onClick vào ImageView donut. Khi bạn nhập, các gợi ý sẽ xuất hiện cho các trình xử lý nhấn. Chọn trình xử lý nhấn showDonutOrder. Code bây giờ trông như sau:
+
+Dòng cuối cùng (android:onClick="showDonutOrder") gán trình xử lý nhấp chuột (showDonutOrder) cho ImageView.
+3. (Tùy chọn) Chọn Code > Reformat Code để định dạng lại mã XML mà bạn đã thêm vào content_main.xml để phù hợp với các tiêu chuẩn và làm cho nó dễ đọc hơn. Android Studio sẽ tự động di chuyển thuộc tính android:onClick lên vài dòng để kết hợp chúng với các thuộc tính khác bắt đầu bằng android: như lời nói đầu.
+4. Thực hiện theo cùng một quy trình để thêm thuộc tính android:onClick vào các phần tử ImageView ice_cream và froyo. Chọn các trình xử lý nhấn showDonutOrder và show FroyoOrder. Bạn có thể tùy chỉnh chọn Code > Reformat Code để định dạng lại code XML. Code bây giờ trông như sau:
+⦁	Các điều khiển nhập liệu
+⦁	Menu và bộ chọn
+⦁	Điều hướng người dùng
+⦁	RecycleView
+Những gì Bạn nên biết
+Bạn nên có khả năng:
+⦁	Tạo một dự án Android Studio từ một mẫu và tạo bố cục chính.
+⦁	Chạy ứng dụng trên mô hình giả lập hoặc thiết bị được kết nối.
+⦁	Tạo và chỉnh sửa phần tử UI bằng trình chỉnh sửa bố cục và mã XML.
+⦁	Truy cập các phần tử UI từ mã của bạn sử dụng findViewById().
+⦁	Xử lý thao tác bấm vào Button.
+⦁	Hiển thị thông báo Toast.
+⦁	Thêm những hình ảnh vào thư mục drawable của dự án.
+
+Những gì Bạn sẽ cần:
+⦁	Cách sử dụng hình ảnh như một phần tử tương tác để thực hiện hành động.
+⦁	Cách thiết lập các thuộc tính cho phần tử ImageView trong trình chỉnh sửa bố cục.
+⦁	Cách thêm phương thức onClick() để hiển thị thông báo Toast.
+Những gì bạn sẽ làm
+⦁	Tạo một dự án Android Studio mới cho một ứng dụng giả lập đặt món tráng miệng sử dụng hình ảnh làm phần tử tương tác.
+⦁	Thiết lập xử lý onClick() cho các hình ảnh để hiển thị ra các thông báo Toast khác nhau.
+⦁	Thay đổi nút hành động nổi do mẫu cung cấp để hiển thị biểu tượng khác nhau và khởi chạy một Activity khác.
+Tổng quan ứng dụng
+Trong bài thực hành này, bạn tạo và xây dựng một ứng dụng mới bắt đầu bằng mẫu Basic Activity, mô phỏng một ứng dụng đặt món tráng miệng. Người dùng có thể nhấn vào hình ảnh để thực hiện một hành động—trong trường hợp này là hiển thị một thông báo Toast—như minh họa trong hình bên dưới. Người dùng cũng có thể nhấn vào nút giỏ hàng để tiến tới Activity tiếp theo.
+
+
+Nhiệm vụ 1: Thêm hình ảnh vào bố cục
+Bạn có thể làm một chế độ xem có thể nhấn được, như một nút, bằng cách thêm thuộc tính android:onClick trong bố cục XML. Ví dụ, bạn có thể làm cho ảnh hoạt động giống như một nút bằng cách thêm android:onClick vào ImageView.
+Trong nhiệm vụ này bạn tạo một nguyên mẫu của ứng dụng đặt món tráng miệng từ một quán cà phê. Sau khi bắt đầu một dự án mới dựa trên mẫu Basic Activity, bạn sửa đổi TextView “Hello world” thành nội dung phù hợp và thêm hình ảnh mà người dùng có thể nhấn vào.
+
+
+
+1.1 Bắt đầu dự án mới
+1. Bắt đầu một dự án Android Studio mới với tên ứng dụng là Droid Cafe.
+2. Chọn mẫu Basic Activity, và chấp nhận tên Activity mặc định (MainActivity). Đảm bảo các tùy chọn Generate Layout file và Backwards Compatibility (AppCompat) được chọn.
+
+
+
+3. Bấm Finish.
+Dự án mở ra với 2 bố cục trong trong thư mục res > layout: activity_main.xml dành cho thanh ứng dụng và nút hành động nổi (Bạn không thay đổi trong nhiệm vụ này), và content_main.xml dành cho mọi thứ khác trong giao diện</string>
+</resources>

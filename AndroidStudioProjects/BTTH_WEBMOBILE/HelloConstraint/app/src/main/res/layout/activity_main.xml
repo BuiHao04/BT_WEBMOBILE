@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnToast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#673AB7"
+            android:onClick="showToast"
+            android:text="@string/btn_toast"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btnzero"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#673AB7"
+            android:lineSpacingExtra="2sp"
+            android:onClick="EventZero"
+            android:text="Zero"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btnCount"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:background="#3F51B5"
+            android:onClick="countUp"
+            android:text="@string/btn_count"
+            android:textSize="24sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/show_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="@dimen/padding_regular"
+        android:layout_weight="6"
+        android:background="#FFEB3B"
+        android:gravity="center"
+        android:shadowRadius="@dimen/material_emphasis_disabled"
+        android:text="@string/button_label_toast"
+        android:textColor="#F44336"
+        android:textSize="160sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
