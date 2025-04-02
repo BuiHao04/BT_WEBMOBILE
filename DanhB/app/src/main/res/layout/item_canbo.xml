@@ -1,0 +1,73 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Avatar của cán bộ -->
+        <ImageView
+            android:id="@+id/imv_canbo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="4dp"
+            android:scaleType="centerCrop"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/circle_background"
+            android:clipToOutline="true"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <!-- Họ tên -->
+        <TextView
+            android:id="@+id/txt_hoten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imv_canbo"
+            android:layout_toEndOf="@id/imv_canbo"
+            android:text="Nguyễn Văn A"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- Chức vụ -->
+        <TextView
+            android:id="@+id/txt_chucvu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_hoten"
+            android:layout_toEndOf="@id/imv_canbo"
+            android:layout_marginTop="4dp"
+            android:text="Chức vụ: Giảng viên"
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- Đơn vị công tác -->
+        <TextView
+            android:id="@+id/txt_dvct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_chucvu"
+            android:layout_toEndOf="@id/imv_canbo"
+            android:layout_marginTop="4dp"
+            android:text="Đơn vị: Khoa CNTT"
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

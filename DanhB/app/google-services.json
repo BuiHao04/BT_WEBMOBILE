@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "261832687441",
+    "project_id": "mytlucontact-3e78a",
+    "storage_bucket": "mytlucontact-3e78a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261832687441:android:876dddd98db98a788c5d70",
+        "android_client_info": {
+          "package_name": "com.example.danhb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE3GSKObep8j4HVqByILACwtbOJ_zpe_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
