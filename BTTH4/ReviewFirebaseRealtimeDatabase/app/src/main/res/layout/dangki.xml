@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Email" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/google_storage_bucket"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:text="Password" />
+    <Button
+        android:id="@+id/btnDangKi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register" />
+</LinearLayout>
